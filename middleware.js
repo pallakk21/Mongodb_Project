@@ -1,7 +1,6 @@
 const Listing = require("./models/listing");
 const Review = require("./models/review");
 
-// ✅ Check if user is logged in
 module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     req.session.redirectUrl = req.originalUrl; // save URL before login
@@ -11,7 +10,7 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 };
 
-// ✅ Save redirect URL after login
+
 module.exports.saveRedirectUrl = (req, res, next) => {
   if (req.session.redirectUrl) {
     res.locals.redirectUrl = req.session.redirectUrl;
@@ -19,7 +18,7 @@ module.exports.saveRedirectUrl = (req, res, next) => {
   next();
 };
 
-// ✅ Check if current user is the owner of listing
+
 module.exports.isOwner = async (req, res, next) => {
   const { id } = req.params;
   const listing = await Listing.findById(id);
@@ -37,7 +36,7 @@ module.exports.isOwner = async (req, res, next) => {
   next();
 };
 
-// ✅ Check if current user is the author of review
+
 module.exports.isReviewAuthor = async (req, res, next) => {
   const { id, reviewId } = req.params;
   const review = await Review.findById(reviewId);

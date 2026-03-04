@@ -1,121 +1,4 @@
-/*  
- 
- 
- 
- 
- body{
-    font-family:  sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
- }
- 
- 
- .container{
-    flex:1;
- }
- 
- 
- 
- .navbar{height: 5rem;
-    background-color: white;
-}
-.fa-compass{ 
-    color:#fe424d;
-    font-size: 2rem;
-}
-.nav-link{
-    color:#222222 !important;
-}
 
-
-
-.f-info-socials{
-width: 100%;
-font-size: 1.2rem;
-}
-
-.f-info-links , .f-info-socials , .f-info-brands{
-    width: 100%;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-      justify-content: center;
-}
-
-.f-info-socials i{
-    margin-right: 1rem; ;
-
-}
-.f-info {
-    background-color: #bebebe;
-   text-align: center;
-   height: 8rem;
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     align-items: space-evenly;
-   
-}
-
-f-info-links a{
-    text-decoration: none ;
-    color: #222222;;
-}
- .f-info-links a:hover
-{
-    text-decoration: underline;
-         
-}
-listing-card{
-    border:none !important;
-    margin-bottom: 2rem;
-}
-.card-img-top{
-    border-radius: 1rem !important;
-    height: 12rem;
-    width: 100% !important;
-    object-fit: cover !important;
-}
-.card-body{
-    padding: 0 !important;
-}
-.card-text p{
-    font-weight: 400 !important;
-}
-.listing-link{
-    text-decoration:none ;
-}
-.card-img-overlay{
-    opacity: 0;
-}
-.card-img-overlay:hover{
-    opacity: 0.2;
-    background-color: white;
-    transition: 0.3s ease-in-out;
-}
-.btns{
-    display: flex;
-}
-.add-btn{
-    background-color: #fe424d !important;
-    border: none !important;
-} 
-.edit-btn{
-      background-color: #fe424d !important;
-    border: none !important; 
-}
-.show-img{
-    height: 30vh;
-}
-
-.btns{
-  display: flex;  
-}
-.show-card{
-    padding-left: 0;
-    padding-right: 0 ;
-}  */
 
 
   body {
@@ -146,6 +29,7 @@ listing-card{
 
 .explore {
   margin-left: -1rem;
+  color: greenyellow;
 }
 
 .f-info-links a {
@@ -659,3 +543,12 @@ listing-card{
   text-align: center;
   margin-bottom: -1rem;
 } 
+.btns {
+    display: flex; /* Ye buttons ko ek line mein layega */
+    margin-top: 1rem;
+}
+
+.edit-btn {
+    background-color: #fe424d !important; /* Airbnb pink/red color */
+    border: none !important;
+}

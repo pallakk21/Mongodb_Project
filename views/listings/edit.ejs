@@ -16,16 +16,15 @@
         <textarea id="description" name="listing[description]" class="form-control" required><%= listing.description %></textarea>
         <div class="invalid-feedback">Please enter a short description</div>
       </div>
-<div class="mb-3">
-       Original Listing Image<br/>
-      <img src="<%= listing.image.url %>" style="width: 300px; height: 250px;" />
 
+      <div class="mb-3">
+        Original Listing Image<br/>
+        <img src="<%= listing.image.url %>" class="img-thumbnail" style="width: 250px; height: 200px;" />
       </div>
 
       <div class="mb-3">
         <label for="image" class="form-label">Upload New Image</label>
-        <input id="image" name="listing[image]"  type="file" class="form-control"  />
-        <div class="invalid-feedback">Please enter an image</div>
+        <input id="image" name="listing[image]" type="file" class="form-control" />
       </div>
 
       <div class="row">
@@ -36,21 +35,36 @@
         </div>
 
         <div class="mb-3 col-md-8">
+          <label for="category" class="form-label">Category</label>
+          <select name="listing[category]" class="form-select" required>
+            <% 
+              const categories = ["Trending", "Rooms", "Iconic Cities", "Mountains", "Castles", "Amazing Pools", "Camping", "Farms", "Arctic", "OMG!"]; 
+            %>
+            <% for(let cat of categories) { %>
+              <option value="<%= cat %>" <%= listing.category === cat ? 'selected' : '' %> >
+                <%= cat %>
+              </option>
+            <% } %>
+          </select>
+          <div class="invalid-feedback">Please select a category</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
           <label for="country" class="form-label">Country</label>
           <input id="country" name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required />
           <div class="invalid-feedback">Please enter a valid country</div>
         </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="location" class="form-label">Location</label>
+          <input id="location" name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
+          <div class="invalid-feedback">Please enter a valid location</div>
+        </div>
       </div>
 
-      <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-        <input id="location" name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
-        <div class="invalid-feedback">Please enter a valid location</div>
-      </div>
-
-      <button type="submit" class="btn btn-dark edit-btn mt-3">Edit</button>
+      <button type="submit" class="btn btn-dark edit-btn mt-3 mb-5">Edit</button>
     </form>
   </div>
 </div>
-
-<!-- <script src="/js/script.js"></script> -->

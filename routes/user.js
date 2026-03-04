@@ -13,10 +13,10 @@ const saveRedirectUrl = (req, res, next) => {
 };
 const userController = require("../controllers/user.js");
 
-// 🟢 Signup Form
+
 router.get("/signup",userController.rendersignupform );
 
-// 🟢 Signup Logic
+
 router.post(
   "/signup",
   wrapAsync(userController.signup)

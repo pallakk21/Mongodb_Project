@@ -1,20 +1,4 @@
-// const mongoose = require("mongoose");
-// const initdata = require("./data.js");
-// const listing = require("../models/listing.js");  
-// const mongourl = "mongodb://127.0.0.1:27017/wanderlust";
-// main()
-// .then(() => {console.log ("connected to db");})
 
-// .catch((err ) =>{ console.log(err)});
-
-// async function main() {
-//   await mongoose.connect(mongourl);}  
-//   const initDB = async () => {
-//     await listing.deleteMany({});
-//     await listing.insertMany(initdata.data);
-//     console.log("data initialized");
-//   }
-//   initDB();
 
 const mongoose = require("mongoose");
 const initdata = require("./data.js");
@@ -33,7 +17,7 @@ async function main() {
     await Listing.insertMany(initdata.data);
     console.log("Data initialized");
     
-    mongoose.connection.close();  // Close connection after done
+    mongoose.connection.close();  
   } catch (err) {
     console.log("Error connecting to db or initializing data:", err);
   }
