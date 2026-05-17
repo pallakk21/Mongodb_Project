@@ -29,13 +29,14 @@ router.get("/login", userController.renderloginform);
 router.post(
   "/login",
   saveRedirectUrl,
-  passport.authenticate("local", {
-    failureRedirect: "/login",
-    failureFlash: true,
-  }),
+  (req, res, next) => {
+    passport.authenticate("local", {
+      failureRedirect: "/login",
+      failureFlash: true,
+    })(req, res, next);
+  },
   userController.login
 );
-
 // Logout
 router.get("/logout", userController.logout);
 
