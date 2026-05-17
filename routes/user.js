@@ -11,7 +11,7 @@ const saveRedirectUrl = (req, res, next) => {
   }
   next();
 };
-const userController = require("../controllers/users.js");
+const userController = require("../controllers/user.js");
 
 
 router.get("/signup",userController.rendersignupform );
