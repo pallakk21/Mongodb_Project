@@ -19,7 +19,7 @@ router.get("/signup",userController.rendersignupform );
 
 router.post(
   "/signup",
-  wrapAsync(userController.signup)
+  userController.signup
 );
 
 //  Login Form
