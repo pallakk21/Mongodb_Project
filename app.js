@@ -14,13 +14,11 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-
 const ListingRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// Atlas DB URL (Behtar hai ki ise .env se hi lo)
-const dburl = process.env.ATLASDB_URL; 
+const dburl = process.env.ATLASDB_URL;
 
 async function main() {
   try {
@@ -35,14 +33,12 @@ main();
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
 
-// Session Store Setup
 const store = MongoStore.create({
-  mongoUrl: dburl, // Yahan dburl aayega!
+  mongoUrl: dburl,
   crypto: {
     secret: process.env.SECRET || "mysupersecret",
   },
@@ -62,14 +58,15 @@ const sessionOptions = {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
+    secure: process.env.NODE_ENV === "production", // ✅ added
   },
 };
 
 app.use(session(sessionOptions));
 app.use(flash());
-
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
